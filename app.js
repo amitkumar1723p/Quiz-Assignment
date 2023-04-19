@@ -31,9 +31,7 @@ app.use("/quizzes", QuizRoutes);
 
 //get Port
 const port = process.env.PORT;
-app.listen(port, () => {
-  console.log(`server listend on http://localhost:${port}`);
-});
+app.listen(port);
 
 // Error Handler
 process.on("unhandledRejection", (err) => {
