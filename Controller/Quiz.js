@@ -4,8 +4,18 @@ import { SendError } from "../Utils/SendError.js";
 //  CreateQuiz
 export const createQuiz = async (req, res) => {
   try {
-    // get Quiz field
+    // get Quiz field 
     const { quizname, QuestionData } = req.body;
+    if (!QuestionData) {
+      let message = "QuestionData Field is  Data is required"
+      return SendError(res, 404, false, message, null);
+    }
+    if (QuestionData.length == 0) {
+      let message = "QuestionData is  Data is required"
+      return SendError(res, 404, false, message, null);
+    }
+
+
 
     //  crate Quiz document
     const QuizData = new QuizModel({
